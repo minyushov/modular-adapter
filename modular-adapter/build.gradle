@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.minyushov.bintray'
+
+android {
+  compileSdkVersion androidCompileSdkVersion
+
+  defaultConfig {
+    minSdkVersion androidMinSdkVersion
+    targetSdkVersion androidTargetSdkVersion
+  }
+
+  libraryVariants.all {
+    it.generateBuildConfig.enabled = false
+  }
+
+  compileOptions {
+    sourceCompatibility javaVersion
+    targetCompatibility javaVersion
+  }
+}
+
+dependencies {
+  api "com.minyushov.android.support:recyclerview-x:$androidSupportExtensionsVersion"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+}
+
+bintrayUpload {
+  artifactId = "modular-adapter"
+  repo = "android"
+  groupId = "com.minyushov.android"
+  version = "1.0.0"
+  vcsUrl = "https://github.com/minyushov/modular-adapter.git"
+  license = "Apache-2.0"
+  dryRun = false
+  docs = false
+}
