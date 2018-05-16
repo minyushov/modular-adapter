@@ -2,7 +2,7 @@ buildscript {
   ext {
     javaVersion = JavaVersion.VERSION_1_8
     kotlinVersion = "1.2.41"
-    androidMinSdkVersion = 19
+    androidMinSdkVersion = 17
     androidCompileSdkVersion = 27
     androidTargetSdkVersion = 27
     androidSupportLibraryVersion = "27.1.1"
