@@ -6,7 +6,7 @@ buildscript {
     androidCompileSdkVersion = 27
     androidTargetSdkVersion = 27
     androidSupportLibraryVersion = "27.1.1"
-    androidSupportExtensionsVersion = "$androidSupportLibraryVersion-1"
+    androidSupportExtensionsVersion = "$androidSupportLibraryVersion-2"
   }
 
   repositories {
@@ -17,7 +17,7 @@ buildscript {
 
   dependencies {
     classpath "com.android.tools.build:gradle:3.1.2"
-    classpath "com.minyushov.gradle:bintray:1.0.4"
+    classpath "com.minyushov.gradle:bintray:1.0.5"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
 }
