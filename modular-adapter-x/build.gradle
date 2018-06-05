@@ -21,12 +21,12 @@ android {
 }
 
 dependencies {
-  api "com.minyushov.android.support:recyclerview-x:$androidSupportExtensionsVersion"
+  api project(":modular-adapter")
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
 bintrayUpload {
-  artifactId = "modular-adapter"
+  artifactId = "modular-adapter-x"
   repo = libraryRepo
   groupId = libraryGroupId
   version = libraryVersion
