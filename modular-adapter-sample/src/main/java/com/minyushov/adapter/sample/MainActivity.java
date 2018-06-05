@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
       }
     }
 
-    dataSource.submitList(items);
+    dataSource.submitItems(items);
   }
 
   private class Module1 extends AdapterModule<ViewHolder<TextView>, Item1> implements ItemClickPlugin<Item1>, DragAndDropPlugin<Item1> {

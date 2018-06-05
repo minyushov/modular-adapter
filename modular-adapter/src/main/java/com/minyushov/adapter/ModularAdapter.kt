@@ -27,7 +27,8 @@ annotation class Direction
 open class ModularAdapter<VH : ViewHolder, I : ModularItem> : RecyclerView.Adapter<VH>() {
   interface DataSource<I : ModularItem> {
     fun <VH : ViewHolder> setAdapter(adapter: ModularAdapter<VH, I>)
-    fun submitList(list: List<I>)
+    fun submitItems(items: List<I>)
+    fun getItems(): List<I>
     fun getItemCount(): Int
     fun getItem(position: Int): I
     fun moveItem(fromPosition: Int, toPosition: Int)

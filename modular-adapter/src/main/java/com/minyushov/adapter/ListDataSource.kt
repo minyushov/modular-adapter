@@ -3,7 +3,7 @@ package com.minyushov.adapter
 import android.support.v7.widget.RecyclerView
 
 class ListDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
-  private val items = mutableListOf<I>()
+  private val _items = mutableListOf<I>()
 
   private lateinit var adapter: RecyclerView.Adapter<*>
 
@@ -11,20 +11,23 @@ class ListDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
     this.adapter = adapter
   }
 
-  override fun submitList(list: List<I>) {
-    items.clear()
-    items.addAll(list)
+  override fun submitItems(items: List<I>) {
+    _items.clear()
+    _items.addAll(items)
     adapter.notifyDataSetChanged()
   }
 
+  override fun getItems(): List<I> =
+    _items
+
   override fun getItemCount(): Int =
-    items.size
+    _items.size
 
   override fun getItem(position: Int): I =
-    items[position]
+    _items[position]
 
   override fun moveItem(fromPosition: Int, toPosition: Int) {
-    items.swap(fromPosition, toPosition)
+    _items.swap(fromPosition, toPosition)
     adapter.notifyItemMoved(fromPosition, toPosition)
   }
 }

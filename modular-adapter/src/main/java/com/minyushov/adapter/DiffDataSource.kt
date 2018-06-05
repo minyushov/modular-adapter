@@ -12,17 +12,14 @@ class DiffDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
   private lateinit var differ: AsyncListDiffer<I>
 
   private val config: AsyncDifferConfig<I> = AsyncDifferConfig.Builder(object : DiffUtil.ItemCallback<I>() {
-    override fun areItemsTheSame(oldItem: I, newItem: I): Boolean {
-      return adapter.areItemsTheSame(oldItem, newItem)
-    }
+    override fun areItemsTheSame(oldItem: I, newItem: I) =
+      adapter.areItemsTheSame(oldItem, newItem)
 
-    override fun areContentsTheSame(oldItem: I, newItem: I): Boolean {
-      return adapter.areContentsTheSame(oldItem, newItem)
-    }
+    override fun areContentsTheSame(oldItem: I, newItem: I) =
+      adapter.areContentsTheSame(oldItem, newItem)
 
-    override fun getChangePayload(oldItem: I?, newItem: I?): Any? {
-      return adapter.getChangePayload(oldItem!!, newItem!!)
-    }
+    override fun getChangePayload(oldItem: I, newItem: I) =
+      adapter.getChangePayload(oldItem, newItem)
   }).build()
 
   override fun <VH : RecyclerView.ViewHolder> setAdapter(adapter: ModularAdapter<VH, I>) {
@@ -30,8 +27,11 @@ class DiffDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
     this.differ = AsyncListDiffer(AdapterListUpdateCallback(adapter), config)
   }
 
-  override fun submitList(list: List<I>) =
-    differ.submitList(list)
+  override fun submitItems(items: List<I>) =
+    differ.submitList(items)
+
+  override fun getItems(): List<I> =
+    differ.currentList
 
   override fun getItemCount(): Int =
     differ.currentList.size
