@@ -87,6 +87,7 @@ open class ModularAdapter<VH : ViewHolder, I : ModularItem> : RecyclerView.Adapt
   override fun onBindViewHolder(holder: VH, position: Int) =
     moduleManager.getModule(holder.itemViewType).onBindViewHolder(holder, dataSource.getItem(position))
 
+  @JvmSuppressWildcards
   override fun onBindViewHolder(holder: VH, position: Int, payloads: List<Any>) =
     if (payloads.isEmpty()) {
       onBindViewHolder(holder, position)
