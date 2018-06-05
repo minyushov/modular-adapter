@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.ViewGroup
 
 abstract class AdapterModule<VH : ViewHolder, I : ModularItem> {
-  open val itemType = getGenericType<I>()
+  open val itemType by lazy { getGenericType<I>() }
 
   abstract fun onCreateViewHolder(parent: ViewGroup): VH
   abstract fun onBindViewHolder(holder: VH, item: I)
