@@ -13,11 +13,6 @@ android {
   libraryVariants.all {
     it.generateBuildConfig.enabled = false
   }
-
-  compileOptions {
-    sourceCompatibility javaVersion
-    targetCompatibility javaVersion
-  }
 }
 
 dependencies {
