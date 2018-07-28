@@ -1,10 +1,10 @@
 buildscript {
   ext {
     javaVersion = JavaVersion.VERSION_1_8
-    kotlinVersion = "1.2.41"
+    kotlinVersion = "1.2.51"
     androidMinSdkVersion = 17
-    androidCompileSdkVersion = 27
-    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 28
+    androidTargetSdkVersion = 28
     androidSupportLibraryVersion = "27.1.1"
     androidSupportExtensionsVersion = "$androidSupportLibraryVersion-2"
 
@@ -22,8 +22,8 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.2.0-alpha16"
-    classpath "com.minyushov.gradle:bintray:1.0.5"
+    classpath "com.android.tools.build:gradle:3.2.0-beta04"
+    classpath "com.minyushov.gradle:bintray:1.1.0"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
 }
