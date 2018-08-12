@@ -3,9 +3,9 @@ package com.minyushov.adapter
 import java.lang.reflect.ParameterizedType
 
 internal fun <T> Any.getGenericType(): Class<T> {
-  var type: Class<*> = javaClass
-  while (type.genericSuperclass !is ParameterizedType) {
-    type = type.superclass
+  var type: Class<*>? = javaClass
+  while (type?.genericSuperclass !is ParameterizedType) {
+    type = type?.superclass
   }
   val parameterizedType = type.genericSuperclass as ParameterizedType
   @Suppress("UNCHECKED_CAST")

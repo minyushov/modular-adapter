@@ -4,10 +4,10 @@ buildscript {
     androidMinSdkVersion = 17
     androidCompileSdkVersion = 28
     androidTargetSdkVersion = 28
-    androidSupportLibraryVersion = "27.1.1"
-    androidSupportExtensionsVersion = "$androidSupportLibraryVersion-2"
+    recyclerViewVersion = "1.0.0-rc01"
+    appcompatVersion = "1.0.0-rc01"
 
-    libraryVersion = "1.0.2"
+    libraryVersion = "1.1.0-rc01"
     libraryRepo = "android"
     libraryGroupId = "com.minyushov.android"
     libraryVcsUrl = "https://github.com/minyushov/modular-adapter.git"
@@ -21,7 +21,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.2.0-beta04"
+    classpath "com.android.tools.build:gradle:3.2.0-beta05"
     classpath "com.minyushov.gradle:bintray:1.1.0"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
@@ -32,6 +32,7 @@ allprojects {
     jcenter()
     google()
     maven { url 'https://dl.bintray.com/minyushov/android' }
+    maven { url 'https://dl.bintray.com/minyushov/androidx' }
   }
 }
 

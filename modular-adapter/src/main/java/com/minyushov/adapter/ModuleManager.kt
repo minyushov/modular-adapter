@@ -1,8 +1,8 @@
 package com.minyushov.adapter
 
-import android.support.v7.widget.RecyclerView.ViewHolder
+import androidx.recyclerview.widget.RecyclerView
 
-internal class ModuleManager<M : AdapterModule<VH, I>, VH : ViewHolder, I : ModularItem> {
+internal class ModuleManager<M : AdapterModule<VH, I>, VH : RecyclerView.ViewHolder, I : ModularItem> {
   private val viewTypes = mutableMapOf<Int, M>()
   private val itemTypes = mutableMapOf<Class<I>, M>()
   private val modules = mutableMapOf<M, Int>()

@@ -1,6 +1,6 @@
 package com.minyushov.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 class ListDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
   private val _items = mutableListOf<I>()

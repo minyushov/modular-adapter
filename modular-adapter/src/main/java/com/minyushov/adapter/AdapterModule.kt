@@ -1,9 +1,9 @@
 package com.minyushov.adapter
 
-import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
-abstract class AdapterModule<VH : ViewHolder, I : ModularItem> {
+abstract class AdapterModule<VH : RecyclerView.ViewHolder, I : ModularItem> {
   open val itemType by lazy { getGenericType<I>() }
 
   abstract fun onCreateViewHolder(parent: ViewGroup): VH

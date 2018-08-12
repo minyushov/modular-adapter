@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-  api "com.minyushov.android.support:recyclerview-x:$androidSupportExtensionsVersion"
+  api "msv.androidx:recyclerview:$recyclerViewVersion"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 

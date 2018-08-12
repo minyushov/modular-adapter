@@ -1,11 +1,10 @@
 package com.minyushov.adapter
 
-import android.support.v7.util.AdapterListUpdateCallback
-import android.support.v7.widget.RecyclerView
-
-import com.minyushov.support.recyclerview.extensions.AsyncDifferConfig
-import com.minyushov.support.recyclerview.extensions.AsyncListDiffer
-import com.minyushov.support.recyclerview.util.DiffUtil
+import androidx.recyclerview.widget.AdapterListUpdateCallback
+import androidx.recyclerview.widget.RecyclerView
+import msv.androidx.recyclerview.widget.AsyncDifferConfig
+import msv.androidx.recyclerview.widget.AsyncListDiffer
+import msv.androidx.recyclerview.widget.DiffUtil
 
 class DiffDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
   private lateinit var adapter: ModularAdapter<*, I>

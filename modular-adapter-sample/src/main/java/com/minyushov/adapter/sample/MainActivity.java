@@ -1,18 +1,10 @@
 package com.minyushov.adapter.sample;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import com.minyushov.adapter.AdapterModule;
 import com.minyushov.adapter.ItemTouchHelperCallback;
@@ -21,7 +13,16 @@ import com.minyushov.adapter.ModularAdapter;
 import com.minyushov.adapter.ModularItem;
 import com.minyushov.adapter.plugins.DragAndDropPlugin;
 import com.minyushov.adapter.plugins.ItemClickPlugin;
-import com.minyushov.support.recyclerview.ViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import msv.androidx.recyclerview.widget.ViewHolder;
 
 public class MainActivity extends AppCompatActivity {
   @Override

@@ -1,3 +1,2 @@
 include ':modular-adapter'
-include ':modular-adapter-x'
 include ':modular-adapter-sample'

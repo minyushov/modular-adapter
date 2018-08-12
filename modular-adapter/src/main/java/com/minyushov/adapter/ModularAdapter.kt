@@ -1,11 +1,10 @@
 package com.minyushov.adapter
 
-import android.support.annotation.IntDef
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.ViewHolder
-import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IntDef
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.minyushov.adapter.plugins.DragAndDropPlugin
 import com.minyushov.adapter.plugins.ItemClickPlugin
 import com.minyushov.adapter.plugins.ItemLongClickPlugin
@@ -24,9 +23,9 @@ interface ModularItem
 @Retention(AnnotationRetention.SOURCE)
 annotation class Direction
 
-open class ModularAdapter<VH : ViewHolder, I : ModularItem> : RecyclerView.Adapter<VH>() {
+open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : RecyclerView.Adapter<VH>() {
   interface DataSource<I : ModularItem> {
-    fun <VH : ViewHolder> setAdapter(adapter: ModularAdapter<VH, I>)
+    fun <VH : RecyclerView.ViewHolder> setAdapter(adapter: ModularAdapter<VH, I>)
     fun submitItems(items: List<I>)
     fun getItems(): List<I>
     fun getItemCount(): Int
