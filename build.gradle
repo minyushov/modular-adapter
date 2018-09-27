@@ -1,13 +1,13 @@
 buildscript {
   ext {
-    kotlinVersion = "1.2.51"
+    kotlinVersion = "1.2.71"
     androidMinSdkVersion = 17
     androidCompileSdkVersion = 28
     androidTargetSdkVersion = 28
-    androidSupportLibraryVersion = "27.1.1"
-    androidSupportExtensionsVersion = "$androidSupportLibraryVersion-2"
+    androidSupportLibraryVersion = "28.0.0"
+    androidSupportExtensionsVersion = "28.0.0"
 
-    libraryVersion = "1.0.2"
+    libraryVersion = "1.0.3"
     libraryRepo = "android"
     libraryGroupId = "com.minyushov.android"
     libraryVcsUrl = "https://github.com/minyushov/modular-adapter.git"
@@ -21,7 +21,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.2.0-beta04"
+    classpath "com.android.tools.build:gradle:3.2.0"
     classpath "com.minyushov.gradle:bintray:1.1.0"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
