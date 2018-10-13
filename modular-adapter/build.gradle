@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-  api "msv.androidx:recyclerview:$recyclerViewVersion"
+  api "androidx.ext:recyclerview:$androidXVersion"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
