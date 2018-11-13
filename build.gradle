@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    kotlinVersion = "1.2.71"
+    kotlinVersion = "1.3.0"
     androidMinSdkVersion = 17
     androidCompileSdkVersion = 28
     androidTargetSdkVersion = 28
