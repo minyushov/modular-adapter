@@ -14,5 +14,5 @@ android {
 
 dependencies {
   implementation project(":modular-adapter")
-  implementation "androidx.appcompat:appcompat:$androidXVersion"
+  implementation "androidx.appcompat:appcompat:$androidAppcompatVersion"
 }

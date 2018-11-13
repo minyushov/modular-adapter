@@ -4,7 +4,9 @@ buildscript {
     androidMinSdkVersion = 17
     androidCompileSdkVersion = 28
     androidTargetSdkVersion = 28
-    androidXVersion = "1.0.0"
+
+    androidRecyclerViewVersion = "1.0.0"
+    androidAppcompatVersion = "1.0.2"
 
     libraryVersion = "1.1.0"
     libraryRepo = "android"
