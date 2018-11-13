@@ -29,6 +29,9 @@ class DiffDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
   override fun submitItems(items: List<I>) =
     differ.submitList(items)
 
+  override fun submitItems(items: List<I>, completion: () -> Unit) =
+    differ.submitList(items, completion)
+
   override fun getItems(): List<I> =
     differ.currentList
 

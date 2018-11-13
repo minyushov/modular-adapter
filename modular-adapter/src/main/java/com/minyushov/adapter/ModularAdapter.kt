@@ -27,6 +27,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
   interface DataSource<I : ModularItem> {
     fun <VH : RecyclerView.ViewHolder> setAdapter(adapter: ModularAdapter<VH, I>)
     fun submitItems(items: List<I>)
+    fun submitItems(items: List<I>, completion: () -> Unit)
     fun getItems(): List<I>
     fun getItemCount(): Int
     fun getItem(position: Int): I

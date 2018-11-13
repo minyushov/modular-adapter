@@ -17,6 +17,11 @@ class ListDataSource<I : ModularItem> : ModularAdapter.DataSource<I> {
     adapter.notifyDataSetChanged()
   }
 
+  override fun submitItems(items: List<I>, completion: () -> Unit) {
+    submitItems(items)
+    completion.invoke()
+  }
+
   override fun getItems(): List<I> =
     _items
 
