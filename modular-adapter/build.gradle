@@ -11,12 +11,14 @@ android {
   }
 
   libraryVariants.all {
-    it.generateBuildConfig.enabled = false
+    it.generateBuildConfigProvider.configure {
+      it.enabled = false
+    }
   }
 }
 
 dependencies {
-  api "androidx.ext:recyclerview:$androidRecyclerViewVersion"
+  api "androidx.ext:recyclerview:1.0.1"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
