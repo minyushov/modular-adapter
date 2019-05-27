@@ -1,9 +1,8 @@
 ### Setting up the dependency
 ```groovy
 repositories {
-  maven {
-    url  "http://dl.bintray.com/minyushov/android" 
-  }
+  maven { url "http://dl.bintray.com/minyushov/android" }
+  maven { url "http://dl.bintray.com/minyushov/androidx" }
 }
 ```
 ```groovy
