@@ -1,8 +1,8 @@
 package com.minyushov.adapter
 
-import androidx.ext.recyclerview.widget.AsyncDifferConfig
-import androidx.ext.recyclerview.widget.AsyncListDiffer
-import androidx.ext.recyclerview.widget.DiffUtil
+import androidxx.recyclerview.widget.AsyncDifferConfig
+import androidxx.recyclerview.widget.AsyncListDiffer
+import androidxx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.AdapterListUpdateCallback
 import androidx.recyclerview.widget.RecyclerView
 

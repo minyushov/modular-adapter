@@ -19,10 +19,11 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.ext.recyclerview.widget.ViewHolder;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import androidxx.recyclerview.widget.ViewHolder;
 
 public class MainActivity extends AppCompatActivity {
   @Override
