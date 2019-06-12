@@ -19,7 +19,7 @@ buildscript {
 
   dependencies {
     classpath "com.android.tools.build:gradle:3.4.1"
-    classpath "com.minyushov.gradle:bintray:1.2.3"
+    classpath "com.minyushov.gradle:bintray:1.2.4"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
 }
