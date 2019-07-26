@@ -3,7 +3,10 @@ package com.minyushov.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class AdapterModule<VH : RecyclerView.ViewHolder, I : ModularItem> {
+abstract class AdapterModule<VH : RecyclerView.ViewHolder, I : ModularItem>(
+  val clickAction: ((item: I, position: Int) -> Unit)? = null,
+  val longClickAction: ((item: I, position: Int) -> Unit)? = null
+) {
   open val itemType by lazy { getGenericType<I>() }
 
   abstract fun onCreateViewHolder(parent: ViewGroup): VH

@@ -1,6 +1,25 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.minyushov.adapter
 
+import androidx.recyclerview.widget.RecyclerView
 import java.lang.reflect.ParameterizedType
+
+fun modularAdapter(
+  dataSource: ModularAdapter.DataSource<ModularItem>,
+  modules: Array<AdapterModule<*, *>>
+): ModularAdapter<RecyclerView.ViewHolder, ModularItem> =
+  ModularAdapter<RecyclerView.ViewHolder, ModularItem>().apply {
+    modules.forEach { registerModule(it) }
+    setDataSource(dataSource)
+  }
+
+inline fun listDataSource(): ListDataSource<ModularItem> =
+  ListDataSource()
+
+inline fun diffDataSource(): DiffDataSource<ModularItem> =
+  DiffDataSource()
+
 
 internal fun <T : ModularItem> Any.getGenericType(): Class<T> {
   var type: Class<*>? = javaClass

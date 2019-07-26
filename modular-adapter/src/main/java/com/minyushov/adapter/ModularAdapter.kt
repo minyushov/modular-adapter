@@ -2,26 +2,11 @@ package com.minyushov.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IntDef
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.minyushov.adapter.plugins.DragAndDropPlugin
-import com.minyushov.adapter.plugins.ItemClickPlugin
-import com.minyushov.adapter.plugins.ItemLongClickPlugin
 import com.minyushov.adapter.plugins.SwipePlugin
 
 interface ModularItem
-
-@IntDef(flag = true, value = [
-  ItemTouchHelper.UP,
-  ItemTouchHelper.DOWN,
-  ItemTouchHelper.LEFT,
-  ItemTouchHelper.RIGHT,
-  ItemTouchHelper.START,
-  ItemTouchHelper.END
-])
-@Retention(AnnotationRetention.SOURCE)
-annotation class Direction
 
 open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : RecyclerView.Adapter<VH>() {
   interface DataSource<I : ModularItem> {
@@ -43,15 +28,13 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
       ?: throw IllegalArgumentException("View $view is not a direct child of RecyclerView")
 
     val holder = recyclerView.getChildViewHolder(view)
-
-    @Suppress("UNCHECKED_CAST")
-    val module = moduleManager.getModule(holder.itemViewType) as? ItemClickPlugin<I>
-      ?: return@OnClickListener
-
-    holder
-      .adapterPosition
-      .takeIf { it != RecyclerView.NO_POSITION }
-      ?.let { module.onItemClicked(dataSource.getItem(it), it) }
+    val clickAction = moduleManager.getModule(holder.itemViewType).clickAction
+    if (clickAction != null) {
+      val position = holder.adapterPosition
+      if (position != RecyclerView.NO_POSITION) {
+        clickAction.invoke(dataSource.getItem(position), position)
+      }
+    }
   }
 
   private val onLongClickListener = View.OnLongClickListener { view ->
@@ -59,16 +42,16 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
       ?: throw IllegalArgumentException("View $view is not a direct child of RecyclerView")
 
     val holder = recyclerView.getChildViewHolder(view)
+    val clickAction = moduleManager.getModule(holder.itemViewType).longClickAction
+    if (clickAction != null) {
+      val position = holder.adapterPosition
+      if (position != RecyclerView.NO_POSITION) {
+        clickAction.invoke(dataSource.getItem(position), position)
+        return@OnLongClickListener true
+      }
+    }
 
-    @Suppress("UNCHECKED_CAST")
-    val module = moduleManager.getModule(holder.itemViewType) as? ItemLongClickPlugin<I>
-      ?: return@OnLongClickListener false
-
-    holder
-      .adapterPosition
-      .takeIf { it != RecyclerView.NO_POSITION }
-      ?.let { module.onItemLongClicked(dataSource.getItem(it), it) }
-      ?: false
+    false
   }
 
   fun registerModule(module: AdapterModule<*, *>) {
