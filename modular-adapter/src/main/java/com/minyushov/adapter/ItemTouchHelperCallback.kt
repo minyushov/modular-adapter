@@ -3,7 +3,7 @@ package com.minyushov.adapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemTouchHelperCallback(
+open class ItemTouchHelperCallback(
   private val adapter: ModularAdapter<*, *>
 ) : ItemTouchHelper.SimpleCallback(0, 0) {
 
