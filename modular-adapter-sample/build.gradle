@@ -11,11 +11,16 @@ android {
     versionCode 1
     versionName "1.0"
   }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
 dependencies {
   implementation project(":modular-adapter")
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "androidx.appcompat:appcompat:1.0.2"
-  implementation "com.minyushov.androidx:recyclerview-ktx:1.0.0-alpha02"
+  implementation "androidx.appcompat:appcompat:1.1.0"
+  implementation "com.minyushov.androidx:recyclerview-ktx:1.0.0"
 }

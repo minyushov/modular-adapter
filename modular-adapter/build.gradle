@@ -15,14 +15,19 @@ android {
       it.enabled = false
     }
   }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
 dependencies {
-  api "com.minyushov.androidx:recyclerview-differ:1.0.0"
+  api "com.minyushov.androidx:recyclerview-differ:1.1.0"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
-bintrayUpload {
+bintray {
   artifactId = "modular-adapter"
   repo = libraryRepo
   groupId = libraryGroupId
