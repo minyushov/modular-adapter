@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-  api "com.minyushov.androidx:recyclerview-differ:1.1.0"
+  api "androidx.recyclerview:recyclerview:1.2.0-alpha02"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 

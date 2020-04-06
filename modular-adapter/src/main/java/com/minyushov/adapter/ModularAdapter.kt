@@ -30,7 +30,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
     val holder = recyclerView.getChildViewHolder(view)
     val clickAction = moduleManager.getModule(holder.itemViewType).clickAction
     if (clickAction != null) {
-      val position = holder.adapterPosition
+      val position = holder.bindingAdapterPosition
       if (position != RecyclerView.NO_POSITION) {
         clickAction.invoke(dataSource.getItem(position), position)
       }
@@ -44,7 +44,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
     val holder = recyclerView.getChildViewHolder(view)
     val clickAction = moduleManager.getModule(holder.itemViewType).longClickAction
     if (clickAction != null) {
-      val position = holder.adapterPosition
+      val position = holder.bindingAdapterPosition
       if (position != RecyclerView.NO_POSITION) {
         clickAction.invoke(dataSource.getItem(position), position)
         return@OnLongClickListener true
@@ -101,6 +101,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
 
   fun getItemSwipeDirs(position: Int): Int {
     val item = dataSource.getItem(position)
+
     @Suppress("UNCHECKED_CAST")
     val module = moduleManager.getModule(item) as? SwipePlugin<I>
     return module?.swipeDirections ?: 0
@@ -108,6 +109,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
 
   fun getDragDirs(position: Int): Int {
     val item = dataSource.getItem(position)
+
     @Suppress("UNCHECKED_CAST")
     val module = moduleManager.getModule(item) as? DragAndDropPlugin<I>
     return module?.dragDirections ?: 0
@@ -115,6 +117,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
 
   fun onDrag(fromPosition: Int, toPosition: Int): Boolean {
     val item = dataSource.getItem(fromPosition)
+
     @Suppress("UNCHECKED_CAST")
     val module = moduleManager.getModule(item) as? DragAndDropPlugin<I>
     if (module != null) {
@@ -127,6 +130,7 @@ open class ModularAdapter<VH : RecyclerView.ViewHolder, I : ModularItem> : Recyc
 
   fun onSwiped(position: Int, swipeDir: Int) {
     val item = dataSource.getItem(position)
+
     @Suppress("UNCHECKED_CAST")
     val module = moduleManager.getModule(item) as? SwipePlugin<I>
     module?.onSwiped(item, position, swipeDir)

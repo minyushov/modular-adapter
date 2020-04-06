@@ -8,7 +8,7 @@ open class ItemTouchHelperCallback(
 ) : ItemTouchHelper.SimpleCallback(0, 0) {
 
   override fun getMovementFlags(recyclerView: RecyclerView, holder: RecyclerView.ViewHolder): Int {
-    val position = holder.adapterPosition
+    val position = holder.bindingAdapterPosition
     return if (position == RecyclerView.NO_POSITION) {
       super.getMovementFlags(recyclerView, holder)
     } else {
@@ -17,8 +17,8 @@ open class ItemTouchHelperCallback(
   }
 
   override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) =
-    adapter.onSwiped(viewHolder.adapterPosition, swipeDir)
+    adapter.onSwiped(viewHolder.bindingAdapterPosition, swipeDir)
 
   override fun onMove(recyclerView: RecyclerView, from: RecyclerView.ViewHolder, to: RecyclerView.ViewHolder): Boolean =
-    adapter.onDrag(from.adapterPosition, to.adapterPosition)
+    adapter.onDrag(from.bindingAdapterPosition, to.bindingAdapterPosition)
 }
