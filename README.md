@@ -1,8 +1,8 @@
 ### Setting up the dependency
 ```groovy
 dependencies {
-  implementation 'com.minyushov.android:modular-adapter:x'
+  implementation 'io.github.minyushov:modular-adapter:x'
 }
 ```
 
-Please replace `x` with the latest version: [![Download](https://api.bintray.com/packages/minyushov/android/modular-adapter/images/download.svg)](https://bintray.com/minyushov/android/modular-adapter/_latestVersion)
+Please replace `x` with the latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.minyushov/modular-adapter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.minyushov/modular-adapter)
