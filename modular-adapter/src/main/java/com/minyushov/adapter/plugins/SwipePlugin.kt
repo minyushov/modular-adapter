@@ -1,7 +1,5 @@
 package com.minyushov.adapter.plugins
 
-import com.minyushov.adapter.Direction
-
 interface SwipePlugin<I> {
   @Direction
   val swipeDirections: Int

@@ -1,7 +1,5 @@
 package com.minyushov.adapter.plugins
 
-import com.minyushov.adapter.Direction
-
 interface DragAndDropPlugin<I> {
   @Direction
   val dragDirections: Int
