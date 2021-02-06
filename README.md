@@ -5,4 +5,4 @@ dependencies {
 }
 ```
 
-Please replace `x` with the latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.minyushov/modular-adapter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.minyushov/modular-adapter)
+Please replace `x` with the latest version: ![Maven Central](https://img.shields.io/maven-central/v/io.github.minyushov/modular-adapter)
