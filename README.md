@@ -3,6 +3,6 @@
 ### Setting up the dependency
 ```groovy
 dependencies {
-  implementation 'io.github.minyushov:modular-adapter:x'
+  implementation 'io.github.minyushov:modular-adapter:$version'
 }
 ```
