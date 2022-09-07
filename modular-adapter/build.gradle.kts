@@ -10,6 +10,7 @@ plugins {
 }
 
 android {
+  namespace = "com.minyushov.adapter"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
