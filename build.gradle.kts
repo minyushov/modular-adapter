@@ -1,26 +1,10 @@
-buildscript {
-  val androidCompileSdkVersion by extra(30)
-  val androidMinSdkVersion by extra(21)
-  val androidTargetSdkVersion by extra(30)
-
-  repositories {
-    google()
-    mavenCentral()
-  }
-}
-
 plugins {
-  kotlin("android") apply false
-  id("com.android.application") apply false
-}
+  @Suppress("DSL_SCOPE_VIOLATION")
+  alias(libs.plugins.android.lib) apply false
 
-allprojects {
-  repositories {
-    google()
-    mavenCentral()
-  }
-}
+  @Suppress("DSL_SCOPE_VIOLATION")
+  alias(libs.plugins.android.app) apply false
 
-tasks.register<Delete>("clean") {
-  delete(rootProject.buildDir)
+  @Suppress("DSL_SCOPE_VIOLATION")
+  alias(libs.plugins.kotlin.android) apply false
 }

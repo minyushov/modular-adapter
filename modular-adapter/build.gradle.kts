@@ -1,52 +1,39 @@
 import java.util.Properties
 
 plugins {
-  id("com.android.library")
-  kotlin("android")
+  @Suppress("DSL_SCOPE_VIOLATION")
+  alias(libs.plugins.android.lib)
+  @Suppress("DSL_SCOPE_VIOLATION")
+  alias(libs.plugins.kotlin.android)
   `maven-publish`
   signing
 }
 
-val androidCompileSdkVersion: Int by rootProject.extra
-val androidMinSdkVersion: Int by rootProject.extra
-val androidTargetSdkVersion: Int by rootProject.extra
-
 android {
-  compileSdkVersion(androidCompileSdkVersion)
+  compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
-    minSdkVersion(androidMinSdkVersion)
-    targetSdkVersion(androidTargetSdkVersion)
+    minSdk = libs.versions.android.minSdk.get().toInt()
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
 
   kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_1_8.toString()
+    jvmTarget = JavaVersion.VERSION_11.toString()
+  }
+
+  publishing {
+    singleVariant("release") {
+      withSourcesJar()
+    }
   }
 }
 
 dependencies {
-  api("androidx.recyclerview:recyclerview:1.2.0-beta01")
-  implementation("org.jetbrains.kotlin:kotlin-stdlib")
-}
-
-val sourcesJar by tasks.registering(Jar::class) {
-  archiveClassifier.set("sources")
-
-  val android = project
-    .extensions
-    .getByType<com.android.build.gradle.LibraryExtension>()
-
-  val sourceSet = android
-    .sourceSets
-    .findByName("main")
-    ?: throw GradleException("Unable to find 'main' source set")
-
-  from(sourceSet.java.srcDirs)
+  api(libs.android.recyclerview)
 }
 
 afterEvaluate {
@@ -63,10 +50,9 @@ afterEvaluate {
       create<MavenPublication>("maven") {
         groupId = "io.github.minyushov"
         artifactId = "modular-adapter"
-        version = "2.2.0"
+        version = "2.3.0"
 
         from(components.findByName("release"))
-        artifact(sourcesJar)
 
         pom {
           name.set(artifactId)
