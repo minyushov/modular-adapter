@@ -21,7 +21,7 @@ dependencyResolutionManagement {
       plugin("kotlin-android", "org.jetbrains.kotlin.android").versionRef("kotlin")
 
       version("android-buildTools", "33.0.0")
-      version("android-minSdk", "24")
+      version("android-minSdk", "21")
       version("android-compileSdk", "33")
       version("android-targetSdk", "33")
 
